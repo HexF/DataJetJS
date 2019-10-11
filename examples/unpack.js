@@ -6,4 +6,4 @@ var up = datajet.packer.unpack(
 	datajet.version.steam.windows['6.4.0']
 );
 
-up.saveFiles(path.resolve(__dirname, '../.tmp'));
+up.saveFiles(path.resolve(__dirname, './tmp'));
