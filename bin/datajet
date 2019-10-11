@@ -1,0 +1,18 @@
+#! /usr/bin/env node
+// -*- js -*-
+
+//push cli stuff here
+
+/*
+    datajet
+        patch [jetfile] [version] [patches...]
+        makepatch [normal jetfile] [patched jetfile] [patch filename]
+            - Creates
+        conflicts [patches...]
+            - Lists all conflicts between patches
+        unpack [jetfile] [version] [directory]
+            - Unpack the jet into directory
+        jetversion [jetfile]
+            - Try all hashes on the jets, if one matches it is that jet.
+        version
+*/
