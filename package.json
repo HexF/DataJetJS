@@ -37,6 +37,8 @@
 		"README.MD"
 	],
 	"dependencies": {
-		"node-7z": "^1.1.1"
+		"7zip-bin": "^5.0.3",
+		"node-7z": "^1.1.1",
+		"rfc6902": "^3.0.4"
 	}
 }
