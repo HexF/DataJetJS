@@ -1,18 +1,22 @@
 #! /usr/bin/env node
 // -*- js -*-
 
-//push cli stuff here
-
 /*
-    datajet
-        patch [jetfile] [version] [patches...]
+    datajet [options]
+        patch [jetfile] [patches...] 
+            - Patch a jetfile with the patches
         makepatch [normal jetfile] [patched jetfile] [patch filename]
-            - Creates
+            - Creates a patch file for the differences in the 2 jets (could be used cross version?)
         conflicts [patches...]
             - Lists all conflicts between patches
-        unpack [jetfile] [version] [directory]
+        unpack [jetfile] [directory]
             - Unpack the jet into directory
         jetversion [jetfile]
             - Try all hashes on the jets, if one matches it is that jet.
         version
+            - Lists the package.json version
+
+    Options:
+        -h  --hash=[sha1,md5]    Sets the default hash type to use
+        -n  --no-hash            Disables hash checking of jets, useful if you are patching an already modded jet (not recommended)
 */
