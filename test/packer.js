@@ -8,7 +8,7 @@ describe('jet', function(){
 				assert.notEqual(datajet.packer.unpack, undefined);
 			});
 			it('should unpack a 6.4.0 jet', function(){
-				datajet.packer.unpack(
+				var res = datajet.packer.unpack(
 					path.resolve(__dirname, './jets/steamwindows_6.4.0.jet'),
 					datajet.version.steam.windows['6.4.0'],
 					'md5'
