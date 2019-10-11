@@ -13,6 +13,8 @@
             - Unpack the jet into directory
         jetversion [jetfile]
             - Try all hashes on the jets, if one matches it is that jet.
+        flatten [patches...]
+            - Joins multiple patches together into one file
         version
             - Lists the package.json version
 

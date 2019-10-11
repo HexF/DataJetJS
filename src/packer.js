@@ -45,43 +45,84 @@ module.exports = {
              * @param {Patch[]|Patch} patch
              */
 			addPatch: function(patch){
-				if (Array.isArray(patch)) {
-					return this;
+				if (patch['patches'] != undefined) {
+					if (this.patches.length != 0) this.patches.concat(patch['patches']);
+					else this.patches = patch['patches'];
 				}
-				this.patches.push(patch);
+				else if (Array.isArray(patch)) {
+					this.patches.concat(patch);
+				}
+				else {
+					this.patches.push(patch);
+				}
 				return this;
 			},
 			/**
-             * Export the patched jet to this path, defaults to the origional
+             * Export the patched jet to this path, defaults to the path of the jet passed in initially
              * @param {Path} fileLocation 
              */
-			pack(fileLocation = this.path, tempPath = path.resolve(__dirname, '.tmp.datajet')) {
+			pack(fileLocation = this.path, tempPath = path.resolve('.tmp.datajet')) {
 				if (fileLocation != this.path) {
 					fs.copyFileSync(this.path, fileLocation);
 				}
-
 				if (this.patches.length > 0) {
 					//Apply our patches on the files.
-					if (patcher.hasConflicts(this.patches)) throw Error('Patches being applied have conflicts');
-					patches = [];
+					this.patches = patcher.flatten(this.patches);
+
+					this.patches.forEach((patch) => {
+						var file = patch.file;
+						var patches = patch.patches;
+						var fp = path.resolve(tempPath, file);
+						Seven.extractFull(fileLocation, tempPath, {
+							password: this.password,
+							$bin: sevenzipbin,
+							$cherryPick: [
+								file
+							]
+						}).on('end', () => {
+							var org = JSON.parse(fs.readFileSync(fp).toString('utf-8'));
+							var content = patcher.patch(org, patches);
+							fs.writeFileSync(fp, JSON.stringify(content, null, 2));
+							Seven.update(fileLocation, fp, {
+								password: this.password,
+								$bin: sevenzipbin
+							});
+						});
+					});
+
+					this.patches = [];
 				}
+
 				return fileLocation;
 
 				//re-insert files into the jet
 			},
 			saveFiles(directory) {
-				//export the entire jet then modify it
 				var dir = path.resolve(directory);
 				Seven.extractFull(this.path, dir, {
 					recursive: true,
 					password: this.password,
 					$bin: sevenzipbin
+				}).on('end', () => {
+					if (this.patches.length > 0) {
+						//Apply our patches on the files.
+						this.patches = patcher.flatten(this.patches);
+
+						this.patches.forEach((patch) => {
+							var file = patch.file;
+							var patches = patch.patches;
+							var fp = path.resolve(directory, file);
+
+							var org = JSON.parse(fs.readFileSync(fp).toString('utf-8'));
+							var content = patcher.patch(org, patches);
+							fs.writeFileSync(fp, JSON.stringify(content, null, 2));
+						});
+
+						this.patches = [];
+					}
+
+					return directory;
 				});
-				if (this.patches.length > 0) {
-					//Apply our patches on the files.
-					patches = [];
-				}
-				return directory;
 			}
 		};
 	}
