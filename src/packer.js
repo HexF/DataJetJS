@@ -46,11 +46,10 @@ module.exports = {
              */
 			addPatch: function(patch){
 				if (patch['patches'] != undefined) {
-					if (this.patches.length != 0) this.patches.concat(patch['patches']);
-					else this.patches = patch['patches'];
+					this.patches = this.patches.concat(patch['patches']);
 				}
 				else if (Array.isArray(patch)) {
-					this.patches.concat(patch);
+					this.patches = this.patches.concat(patch);
 				}
 				else {
 					this.patches.push(patch);
@@ -62,12 +61,12 @@ module.exports = {
              * @param {Path} fileLocation 
              */
 			pack(fileLocation = this.path, tempPath = path.resolve('.tmp.datajet')) {
+				this.patches = patcher.flatten(this.patches);
 				if (fileLocation != this.path) {
 					fs.copyFileSync(this.path, fileLocation);
 				}
 				if (this.patches.length > 0) {
 					//Apply our patches on the files.
-					this.patches = patcher.flatten(this.patches);
 
 					this.patches.forEach((patch) => {
 						var file = patch.file;
@@ -83,7 +82,7 @@ module.exports = {
 							var org = JSON.parse(fs.readFileSync(fp).toString('utf-8'));
 							var content = patcher.patch(org, patches);
 							fs.writeFileSync(fp, JSON.stringify(content, null, 2));
-							Seven.update(fileLocation, fp, {
+							Seven.update(fileLocation, path.resolve(tempPath, 'Assets'), {
 								password: this.password,
 								$bin: sevenzipbin
 							});
@@ -99,6 +98,8 @@ module.exports = {
 			},
 			saveFiles(directory) {
 				var dir = path.resolve(directory);
+				this.patches = patcher.flatten(this.patches);
+
 				Seven.extractFull(this.path, dir, {
 					recursive: true,
 					password: this.password,
@@ -106,8 +107,6 @@ module.exports = {
 				}).on('end', () => {
 					if (this.patches.length > 0) {
 						//Apply our patches on the files.
-						this.patches = patcher.flatten(this.patches);
-
 						this.patches.forEach((patch) => {
 							var file = patch.file;
 							var patches = patch.patches;
