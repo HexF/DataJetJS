@@ -1,6 +1,6 @@
 # Jets
 
-A list of data.jet files
+A list of data.jet files, Will probably move this into its own github repo
 
 ## Android
 
