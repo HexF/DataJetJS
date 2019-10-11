@@ -1,0 +1,43 @@
+{
+	"name": "datajet",
+	"version": "1.0.0",
+	"description": "A Bloons TD Battles data.jet unpacker and patcher",
+	"directories": {
+		"test": "tests"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/HexF/DataJetJS.git"
+	},
+	"keywords": [
+		"bloons",
+		"td",
+		"battles",
+		"unpacker",
+		"data.jet"
+	],
+	"bin": {
+		"datajet": "bin/datajet"
+	},
+	"main": "src/main/node.js",
+	"author": "HexF",
+	"license": "GPL-3.0-or-later",
+	"bugs": {
+		"url": "https://github.com/HexF/DataJetJS/issues",
+		"email": "datajet.bugs@hexf.me"
+	},
+	"homepage": "https://github.com/HexF/DataJetJS#readme",
+	"devDependencies": {
+		"grunt": "^1.0.4",
+		"mocha": "^6.2.1"
+	},
+	"files": [
+		"bin",
+		"src",
+		"package.json",
+		"README.MD"
+	],
+	"dependencies": {
+		"node-7z": "^1.1.1"
+	}
+}
