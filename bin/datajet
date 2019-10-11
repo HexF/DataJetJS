@@ -6,7 +6,7 @@
         patch [jetfile] [patches...] 
             - Patch a jetfile with the patches
         makepatch [normal jetfile] [patched jetfile] [patch filename]
-            - Creates a patch file for the differences in the 2 jets (could be used cross version?)
+            - Creates a patch file for the differences in the 2 jets
         conflicts [patches...]
             - Lists all conflicts between patches
         unpack [jetfile] [directory]
