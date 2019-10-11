@@ -1,0 +1,13 @@
+{
+	"name": "Example Patch",
+	"author": "HexF",
+	"version": "1.0.0",
+	"patches": [
+		{
+			"file": "Assets/JSON/TowerDefinitions/AcePlane.tower",
+			"patches": [
+				{ "op": "replace", "path": "/RotatesToTarget", "value": true }
+			]
+		}
+	]
+}
