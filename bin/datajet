@@ -1,24 +1,273 @@
 #! /usr/bin/env node
 // -*- js -*-
+const path = require('path');
+const fs = require('fs');
+const dj = require('../src/main/node');
+require('yargs')
+	.scriptName('datajet')
+	.command(
+		'version',
+		'Gets the DataJetJS version',
+		(y) => {},
+		(argv) => {
+			console.log('Running DataJetJS v' + require(path.resolve(__dirname, '../package.json')).version);
+		}
+	)
+	.command(
+		'jetversion <jetfile>',
+		'Gets the data.jet version from the file specified',
+		(y) => {
+			y.positional('jetfile', {
+				type: String,
+				description: 'The data.jet file to get the version of',
+				required: true
+			});
+
+			y
+				.string('hash-method')
+				.alias('h', 'hash-method')
+				.describe('hash-method', 'The hashing method that should be used to verify the integrity')
+				.default('hash-method', 'md5');
+		},
+		(argv) => {
+			var p = path.resolve(argv.jetfile);
+			console.log(dj.tools.jetVersion(p, argv.hashMethod));
+		}
+	)
+	.command(
+		'gethashes <jetfile>',
+		'Gets all the hashes for the specified data.jet file',
+		(y) => {
+			y.positional('jetfile', {
+				type: String,
+				description: 'The data.jet file to get the version of'
+			});
+		},
+		(argv) => {
+			var p = path.resolve(argv.jetfile);
+			console.log(dj.tools.getAllHashes(p));
+		}
+	)
+	.command(
+		'patch <jetfile> <patches..>',
+		'Patch the specified jet file with the patches specified',
+		(y) => {
+			y.positional('jetfile', {
+				type: String,
+				description: 'The data.jet file to patch'
+			});
+			y.positional('patches', {
+				type: String,
+				description: 'The patch files to apply to this jet'
+			});
+
+			y
+				.boolean('no-hash')
+				.alias('n', 'no-hash')
+				.describe('no-hash', 'Skip integrity validation of jet files')
+				.default('no-hash', false);
+
+			y
+				.string('hash-method')
+				.alias('h', 'hash-method')
+				.describe('hash-method', 'The hashing method that should be used to verify the integrity')
+				.default('hash-method', 'md5');
+
+			y
+				.string('output')
+				.alias('o', 'output')
+				.describe('output', 'Output file for patched data.jet')
+				.default('output', null);
+			y
+				.string('temp-path')
+				.alias('t', 'temp-path')
+				.describe('temp-path', 'Temporary path used while packing/unpacking jet files')
+				.default('temp-path', '.tmp.jet');
+		},
+		(argv) => {
+			var p = path.resolve(argv.jetfile);
+			var v = dj.tools.jetVersion(p, argv.hashMethod);
+			var packer = dj.packer.unpack(p, v, !argv.noHash, argv.hashMethod);
+
+			argv.patches.forEach((patch) => {
+				packer.addPatch(JSON.parse(fs.readFileSync(path.resolve(patch)).toString('utf-8')));
+			});
+			var o = argv.output;
+			if (o == null || o == undefined) o = p;
+			var t = path.resolve(argv.tempPath);
+
+			console.log('Packed data.jet file into file located at', packer.pack(o, t));
+		}
+	)
+	.command(
+		'unpack <jetfile> <directory> [patches..]',
+		'Patch and unpack the jet file into the specified directory',
+		(y) => {
+			y.positional('jetfile', {
+				type: String,
+				description: 'The data.jet file to patch and unpack'
+			});
+			y.positional('patches', {
+				type: String,
+				description: 'The patch files to apply to this unpacked jet'
+			});
+			y.positional('directory', {
+				type: String,
+				description: 'The directory to unpack this jet'
+			});
+
+			y
+				.boolean('no-hash')
+				.alias('n', 'no-hash')
+				.describe('no-hash', 'Skip integrity validation of jet files')
+				.default('no-hash', false);
+
+			y
+				.string('hash-method')
+				.alias('h', 'hash-method')
+				.describe('hash-method', 'The hashing method that should be used to verify the integrity')
+				.default('hash-method', 'md5');
+		},
+		(argv) => {
+			var p = path.resolve(argv.jetfile);
+			var v = dj.tools.jetVersion(p, argv.hashMethod);
+			var packer = dj.packer.unpack(p, v, !argv.noHash, argv.hashMethod);
+			if (argv.patches && argv.patches.length > 0)
+				argv.patches.forEach((patch) => {
+					packer.addPatch(JSON.parse(fs.readFileSync(path.resolve(patch)).toString('utf-8')));
+				});
+			var o = argv.directory;
+
+			console.log('Unpacked data.jet file into directory located at', packer.saveFiles(o));
+		}
+	)
+	.command(
+		'conflicts <patches..>',
+		'Gets a list of the conflicts in these patches',
+		(y) => {
+			y.positional('patches', {
+				type: String,
+				description: 'The patch files to test'
+			});
+		},
+		(argv) => {
+			var patches = [];
+			argv.patches.forEach((patch) => {
+				patches.push(JSON.parse(fs.readFileSync(path.resolve(patch)).toString('utf-8')).patches);
+			});
+
+			var c = dj.patcher.conflicts(patches);
+			console.log(c);
+		}
+	)
+	.command(
+		'flatten <name> <author> <version> <output> <patches..>',
+		'Flattens the list of patches into a single patch (Useful for distributing patch-packs)',
+		(y) => {
+			y.positional('patches', {
+				type: String,
+				description: 'The patch files to flatten'
+			});
+			y.positional('name', {
+				type: String,
+				description: 'The name of the new patch'
+			});
+			y.positional('author', {
+				type: String,
+				description: 'The author of the patch'
+			});
+			y.positional('version', {
+				type: String,
+				description: 'The version of the new patch'
+			});
+			y.positional('output', {
+				type: String,
+				description: 'The location the new patch should be written to'
+			});
+
+			y
+				.boolean('prettyprint')
+				.alias('p', 'prettyprint')
+				.default('prettyprint', false)
+				.describe('prettyprint', 'Pretty Print the json file');
+		},
+		(argv) => {
+			var patches = [];
+			argv.patches.forEach((patch) => {
+				patches.push(JSON.parse(fs.readFileSync(path.resolve(patch)).toString('utf-8')).patches);
+			});
+
+			var c = dj.patcher.flatten(patches);
+			var p = dj.tools.createPatchJSON(argv.name, argv.author, argv.version, c);
+			var s = JSON.stringify(p, null, argv.prettyprint ? 2 : 0);
+
+			var o = path.resolve(argv.output);
+			fs.writeFileSync(o, s);
+			console.log('Written patch to ' + o);
+		}
+	)
+	.command(
+		'makepatch <normalJet> <moddedJet> <name> <author> <version> <output>',
+		'Creates a mod by checking all differences between normalJet and moddedJet, and writes a patch file',
+		(y) => {
+			y.positional('normalJet', {
+				type: String,
+				description: 'A unmodded data.jet file with the same version as moddedJet'
+			});
+			y.positional('moddedJet', {
+				type: String,
+				description: 'The modded data.jet that has all the mods installed'
+			});
+			y.positional('name', {
+				type: String,
+				description: 'The name of the new patch'
+			});
+			y.positional('author', {
+				type: String,
+				description: 'The author of the patch'
+			});
+			y.positional('version', {
+				type: String,
+				description: 'The version of the new patch'
+			});
+			y.positional('output', {
+				type: String,
+				description: 'The location the new patch should be written to'
+			});
+
+			y
+				.boolean('prettyprint')
+				.alias('p', 'prettyprint')
+				.default('prettyprint', false)
+				.describe('prettyprint', 'Pretty Print the json file');
+			y
+				.string('temp-path')
+				.alias('t', 'temp-path')
+				.describe('temp-path', 'Temporary path used while packing/unpacking jet files')
+				.default('temp-path', '.tmp.jet');
+		},
+		(argv) => {
+			console.log('Processing - May take a long time');
+			dj.tools.makePatch(
+				argv.normalJet,
+				argv.moddedJet,
+				argv.author,
+				argv.name,
+				argv.version,
+				(o) => {
+					var f = path.resolve(argv.output);
+					fs.writeFileSync(f, JSON.stringify(o, null, argv.prettyprint ? 2 : 0));
+					console.log('New Patch written to ' + f);
+				},
+				argv.tempPath
+			);
+		}
+	)
+	.help().argv;
 
 /*
     datajet [options]
-        patch [jetfile] [patches...] 
-            - Patch a jetfile with the patches
-        makepatch [normal jetfile] [patched jetfile] [patch filename]
-            - Creates a patch file for the differences in the 2 jets
-        conflicts [patches...]
-            - Lists all conflicts between patches
-        unpack [jetfile] [directory]
-            - Unpack the jet into directory
-        jetversion [jetfile]
-            - Try all hashes on the jets, if one matches it is that jet.
-        flatten [patches...]
-            - Joins multiple patches together into one file
-        version
-            - Lists the package.json version
-
-    Options:
-        -h  --hash=[sha1,md5]    Sets the default hash type to use
-        -n  --no-hash            Disables hash checking of jets, useful if you are patching an already modded jet (not recommended)
+        makepatch <normal jetfile> <patched jetfile> <patch filename>
+            - Creates a patch file for the differences in the 2 jets 
+       
 */

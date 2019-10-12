@@ -7,6 +7,7 @@ const fs = require('fs');
 const sevenzipbin = require('7zip-bin').path7za;
 const path = require('path');
 const glob = require('glob');
+const rfc6902 = require('rfc6902');
 
 module.exports = {
 	jetVersion: function(jetFile, hashMethod = 'md5'){
@@ -42,7 +43,7 @@ module.exports = {
 
 		return jetHashes;
 	},
-	makePatch: function(standardJet, moddedJet, author, name, version, tmpdir = path.resolve('.tmp.datajet')){
+	makePatch: function(standardJet, moddedJet, author, name, version, callback, tmpdir = path.resolve('.tmp.datajet')){
 		var patchFile = {
 			name: name,
 			version: version,
@@ -52,10 +53,10 @@ module.exports = {
 				jetVersion: 'Unknown'
 			}
 		};
-
+		var done = false;
 		var ver = this.jetVersion(standardJet, 'md5');
 		if (ver == null) return null;
-		patchFile.metadata.jetVersion = ver.platforms + ' v' + ver.version;
+		patchFile.metadata.jetVersion = ver.platform + ' v' + ver.version;
 
 		//calc diffs
 
@@ -71,11 +72,33 @@ module.exports = {
 				password: ver.password,
 				$bin: sevenzipbin
 			}).on('end', () => {
-				glob(normpath + '/**/*', (err, res) => {
+				glob(normpath + '/**/*.*', (err, res) => {
 					if (err) throw err;
-					console.log(res);
+					var patches = [];
+					res.forEach((file) => {
+						var regularFile = file;
+						var moddedFile = regularFile.replace(normpath, modpath);
+						if (file.indexOf('LevelDefinitions') > -1) return;
+						try {
+							var rf = fs.readFileSync(regularFile).toString('utf-8');
+							var mf = fs.readFileSync(moddedFile).toString('utf-8');
 
-					return patchFile;
+							if (rf != mf) {
+								//differences!
+								var file = regularFile.replace(normpath, '').replace('/Assets', 'Assets');
+								var filepatches = rfc6902.createPatch(JSON.parse(rf), JSON.parse(mf));
+								var p = {
+									file: file,
+									patches: filepatches
+								};
+								patches.push(p);
+							}
+						} catch (e) {
+							return;
+						}
+					});
+					patchFile.patches = patches;
+					callback(patchFile);
 				});
 			});
 		});
