@@ -16,6 +16,9 @@ module.exports = {
 					patches.push(q);
 				});
 			}
+			else {
+				patches.push(p);
+			}
 		});
 		pch = [];
 		patches.forEach((e) => {
@@ -41,6 +44,9 @@ module.exports = {
 				p.forEach((q) => {
 					patches.push(q);
 				});
+			}
+			else {
+				patches.push(p);
 			}
 		});
 		pch = [];
