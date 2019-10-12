@@ -1,6 +1,6 @@
 {
 	"name": "datajet",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "A Bloons TD Battles data.jet unpacker and patcher",
 	"directories": {
 		"test": "tests"
