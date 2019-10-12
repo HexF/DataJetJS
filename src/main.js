@@ -1,5 +1,6 @@
 module.exports = {
 	version: require('./versions'),
 	packer: require('./packer'),
-	tools: require('./tools')
+	tools: require('./tools'),
+	patcher: require('./patcher')
 };
