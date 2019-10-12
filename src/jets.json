@@ -1,0 +1,508 @@
+{
+	"android": {
+		"6.3.2": {
+			"password": "6597296902FFCC03",
+			"download": "https://cdn.discordapp.com/attachments/611126212365910036/632156256374751245/data.jet",
+			"hashes": []
+		},
+		"6.3.1": {
+			"password": "4E8BC931CC4C422B",
+			"download": "https://cdn.discordapp.com/attachments/611126212365910036/632156335542239232/data.jet",
+			"hashes": []
+		},
+		"6.3.0": {
+			"password": "9365F6AE59324B18",
+			"download": "https://cdn.discordapp.com/attachments/611126212365910036/632156400931307520/data.jet",
+			"hashes": []
+		}
+	},
+	"ios": {},
+	"winrt": {},
+	"steam": {
+		"macos": {},
+		"windows": {
+			"6.4.1": {
+				"password": "7E35374CA440AF77",
+				"download": "https://cdn.discordapp.com/attachments/608965795828989962/632310091194040331/data.jet",
+				"hashes": [
+					{
+						"type": "RSA-MD4",
+						"hash": "19322faf6edf54134ec2a3d731d17911"
+					},
+					{
+						"type": "RSA-MD5",
+						"hash": "859569ab17750a7efa244b58f6e88c70"
+					},
+					{
+						"type": "RSA-MDC2",
+						"hash": "d86dabd98a324634c55c149640ca06ee"
+					},
+					{
+						"type": "RSA-RIPEMD160",
+						"hash": "6d80e93e82c9b19e1dc5ed2ee3571c7a4b1df1f7"
+					},
+					{
+						"type": "RSA-SHA1",
+						"hash": "8f52dfc19c8c8386a447da858ff63004b5b24774"
+					},
+					{
+						"type": "RSA-SHA1-2",
+						"hash": "8f52dfc19c8c8386a447da858ff63004b5b24774"
+					},
+					{
+						"type": "RSA-SHA224",
+						"hash": "541e788638eef4717cfebf359edb95573b6c6279d4e6f46058155af7"
+					},
+					{
+						"type": "RSA-SHA256",
+						"hash": "08be835ea81d5c7ee6211bb5f1b6e4c3cae2166cfbfccf179341f2e9447e017e"
+					},
+					{
+						"type": "RSA-SHA3-224",
+						"hash": "132ff128d88831c715852eab58eb00f8850a221f572560266c04982a"
+					},
+					{
+						"type": "RSA-SHA3-256",
+						"hash": "eee8bec0e1796c0f4168e64992f921974a9a5ae4ac8e08184acde0a0a848971a"
+					},
+					{
+						"type": "RSA-SHA3-384",
+						"hash": "7dc8572930c9049f5ae7e929440d93b95efa460ec692648efe12988240cc667762b8f079a5ad80d1c2e8b945dbd276fe"
+					},
+					{
+						"type": "RSA-SHA3-512",
+						"hash": "d5fca932f1bf6f5770ad8316a9245490be7f004e49267e33f3db2ed5094e97412c42ef628ffe78993bb0d9307f3445bf64d79a4140017147e826e2122c90186c"
+					},
+					{
+						"type": "RSA-SHA384",
+						"hash": "b6c259f2b8bfea18113b019e27de9cd95acea3127affb60e32e51f3d1eba3c25e3cc1f67740cea61ac5f1a7c99830160"
+					},
+					{
+						"type": "RSA-SHA512",
+						"hash": "d378ce61ac074175d3fe109cc5201acbf43b0038d82e160bf53111b19198fc397192c7a1d1841f0527cc401d166ac5fc9ff225267d5778d34c13902b6bdab2cc"
+					},
+					{
+						"type": "RSA-SHA512/224",
+						"hash": "c0e2a53e35fd898bc4dc2b514f4d17a9027ff5fc29a068f5b9b4def5"
+					},
+					{
+						"type": "RSA-SHA512/256",
+						"hash": "1e325e289e3d7e374bb4febedabb7f27841c3c940bdd830f6a4a2c03c8d106d7"
+					},
+					{
+						"type": "RSA-SM3",
+						"hash": "78199089333061d6c041ccb5e702180ab1fb6d0a8f570369ee8f757edc7fe945"
+					},
+					{
+						"type": "blake2b512",
+						"hash": "844f9a5869dbaa522126a8d241f4a0b1be747e2e9db033c3702d0ca7736297cebc37666e28b56ee8146f57f7aebd0a212418402f08c11adbf63aac6b781978da"
+					},
+					{
+						"type": "blake2s256",
+						"hash": "62b70cce515b5118666555d290188d8d8d34e717563e4f133de7aabb9159e6c9"
+					},
+					{
+						"type": "id-rsassa-pkcs1-v1_5-with-sha3-224",
+						"hash": "132ff128d88831c715852eab58eb00f8850a221f572560266c04982a"
+					},
+					{
+						"type": "id-rsassa-pkcs1-v1_5-with-sha3-256",
+						"hash": "eee8bec0e1796c0f4168e64992f921974a9a5ae4ac8e08184acde0a0a848971a"
+					},
+					{
+						"type": "id-rsassa-pkcs1-v1_5-with-sha3-384",
+						"hash": "7dc8572930c9049f5ae7e929440d93b95efa460ec692648efe12988240cc667762b8f079a5ad80d1c2e8b945dbd276fe"
+					},
+					{
+						"type": "id-rsassa-pkcs1-v1_5-with-sha3-512",
+						"hash": "d5fca932f1bf6f5770ad8316a9245490be7f004e49267e33f3db2ed5094e97412c42ef628ffe78993bb0d9307f3445bf64d79a4140017147e826e2122c90186c"
+					},
+					{
+						"type": "md4",
+						"hash": "19322faf6edf54134ec2a3d731d17911"
+					},
+					{
+						"type": "md4WithRSAEncryption",
+						"hash": "19322faf6edf54134ec2a3d731d17911"
+					},
+					{
+						"type": "md5",
+						"hash": "859569ab17750a7efa244b58f6e88c70"
+					},
+					{
+						"type": "md5-sha1",
+						"hash": "859569ab17750a7efa244b58f6e88c708f52dfc19c8c8386a447da858ff63004b5b24774"
+					},
+					{
+						"type": "md5WithRSAEncryption",
+						"hash": "859569ab17750a7efa244b58f6e88c70"
+					},
+					{
+						"type": "mdc2",
+						"hash": "d86dabd98a324634c55c149640ca06ee"
+					},
+					{
+						"type": "mdc2WithRSA",
+						"hash": "d86dabd98a324634c55c149640ca06ee"
+					},
+					{
+						"type": "ripemd",
+						"hash": "6d80e93e82c9b19e1dc5ed2ee3571c7a4b1df1f7"
+					},
+					{
+						"type": "ripemd160",
+						"hash": "6d80e93e82c9b19e1dc5ed2ee3571c7a4b1df1f7"
+					},
+					{
+						"type": "ripemd160WithRSA",
+						"hash": "6d80e93e82c9b19e1dc5ed2ee3571c7a4b1df1f7"
+					},
+					{
+						"type": "rmd160",
+						"hash": "6d80e93e82c9b19e1dc5ed2ee3571c7a4b1df1f7"
+					},
+					{
+						"type": "sha1",
+						"hash": "8f52dfc19c8c8386a447da858ff63004b5b24774"
+					},
+					{
+						"type": "sha1WithRSAEncryption",
+						"hash": "8f52dfc19c8c8386a447da858ff63004b5b24774"
+					},
+					{
+						"type": "sha224",
+						"hash": "541e788638eef4717cfebf359edb95573b6c6279d4e6f46058155af7"
+					},
+					{
+						"type": "sha224WithRSAEncryption",
+						"hash": "541e788638eef4717cfebf359edb95573b6c6279d4e6f46058155af7"
+					},
+					{
+						"type": "sha256",
+						"hash": "08be835ea81d5c7ee6211bb5f1b6e4c3cae2166cfbfccf179341f2e9447e017e"
+					},
+					{
+						"type": "sha256WithRSAEncryption",
+						"hash": "08be835ea81d5c7ee6211bb5f1b6e4c3cae2166cfbfccf179341f2e9447e017e"
+					},
+					{
+						"type": "sha3-224",
+						"hash": "132ff128d88831c715852eab58eb00f8850a221f572560266c04982a"
+					},
+					{
+						"type": "sha3-256",
+						"hash": "eee8bec0e1796c0f4168e64992f921974a9a5ae4ac8e08184acde0a0a848971a"
+					},
+					{
+						"type": "sha3-384",
+						"hash": "7dc8572930c9049f5ae7e929440d93b95efa460ec692648efe12988240cc667762b8f079a5ad80d1c2e8b945dbd276fe"
+					},
+					{
+						"type": "sha3-512",
+						"hash": "d5fca932f1bf6f5770ad8316a9245490be7f004e49267e33f3db2ed5094e97412c42ef628ffe78993bb0d9307f3445bf64d79a4140017147e826e2122c90186c"
+					},
+					{
+						"type": "sha384",
+						"hash": "b6c259f2b8bfea18113b019e27de9cd95acea3127affb60e32e51f3d1eba3c25e3cc1f67740cea61ac5f1a7c99830160"
+					},
+					{
+						"type": "sha384WithRSAEncryption",
+						"hash": "b6c259f2b8bfea18113b019e27de9cd95acea3127affb60e32e51f3d1eba3c25e3cc1f67740cea61ac5f1a7c99830160"
+					},
+					{
+						"type": "sha512",
+						"hash": "d378ce61ac074175d3fe109cc5201acbf43b0038d82e160bf53111b19198fc397192c7a1d1841f0527cc401d166ac5fc9ff225267d5778d34c13902b6bdab2cc"
+					},
+					{
+						"type": "sha512-224",
+						"hash": "c0e2a53e35fd898bc4dc2b514f4d17a9027ff5fc29a068f5b9b4def5"
+					},
+					{
+						"type": "sha512-224WithRSAEncryption",
+						"hash": "c0e2a53e35fd898bc4dc2b514f4d17a9027ff5fc29a068f5b9b4def5"
+					},
+					{
+						"type": "sha512-256",
+						"hash": "1e325e289e3d7e374bb4febedabb7f27841c3c940bdd830f6a4a2c03c8d106d7"
+					},
+					{
+						"type": "sha512-256WithRSAEncryption",
+						"hash": "1e325e289e3d7e374bb4febedabb7f27841c3c940bdd830f6a4a2c03c8d106d7"
+					},
+					{
+						"type": "sha512WithRSAEncryption",
+						"hash": "d378ce61ac074175d3fe109cc5201acbf43b0038d82e160bf53111b19198fc397192c7a1d1841f0527cc401d166ac5fc9ff225267d5778d34c13902b6bdab2cc"
+					},
+					{
+						"type": "shake128",
+						"hash": "ae5293e4ee1acf3e204ac0c9e9aa4c5d"
+					},
+					{
+						"type": "shake256",
+						"hash": "3ebff57656a96c8874f1a3832b3a5c10743547ccf0d304f6bcf7284c247da3b6"
+					},
+					{
+						"type": "sm3",
+						"hash": "78199089333061d6c041ccb5e702180ab1fb6d0a8f570369ee8f757edc7fe945"
+					},
+					{
+						"type": "sm3WithRSAEncryption",
+						"hash": "78199089333061d6c041ccb5e702180ab1fb6d0a8f570369ee8f757edc7fe945"
+					},
+					{
+						"type": "ssl3-md5",
+						"hash": "859569ab17750a7efa244b58f6e88c70"
+					},
+					{
+						"type": "ssl3-sha1",
+						"hash": "8f52dfc19c8c8386a447da858ff63004b5b24774"
+					},
+					{
+						"type": "whirlpool",
+						"hash": "53dc5209f2a5c772cde31d01ee11d674123f75e4083ca5feb63b05fa0a4eed91151bc91b2231a7fcaf6d32f4b8b3e324ab6b0693f37d9e8f13892faeeac7f34a"
+					}
+				]
+			},
+			"6.4.0": {
+				"hashes": [
+					{
+						"type": "RSA-MD4",
+						"hash": "6b459dcb5adf8009f81aacf71d8d473e"
+					},
+					{
+						"type": "RSA-MD5",
+						"hash": "c78cacc311d603cdd24111ea529d98e5"
+					},
+					{
+						"type": "RSA-MDC2",
+						"hash": "b9e1dad985a335228e6c608542476a2c"
+					},
+					{
+						"type": "RSA-RIPEMD160",
+						"hash": "d1f255cc30b80b4d8fb5d751d35a8514b6ecc752"
+					},
+					{
+						"type": "RSA-SHA1",
+						"hash": "1d1488745504c56f954b1cc8931e15ce056ed28b"
+					},
+					{
+						"type": "RSA-SHA1-2",
+						"hash": "1d1488745504c56f954b1cc8931e15ce056ed28b"
+					},
+					{
+						"type": "RSA-SHA224",
+						"hash": "696e16a2eb32448f2006babe2a0cf724960e6b92022526c6cad6b3ca"
+					},
+					{
+						"type": "RSA-SHA256",
+						"hash": "ee63b401245e2e73d149124fcbb66026ce54e754b3851da65591660bd89cb131"
+					},
+					{
+						"type": "RSA-SHA3-224",
+						"hash": "9771698bab67beba0b9935b0bc049c3adf8a8986e8737c0d6e64a3eb"
+					},
+					{
+						"type": "RSA-SHA3-256",
+						"hash": "b6177ba6148dc75a33998ea4819054ce381b7628463fda85b862caba6ac1d917"
+					},
+					{
+						"type": "RSA-SHA3-384",
+						"hash": "49965b4f03d04ea6c6bb91a0ad81f83e67fa4ace828889c9f717e8602d6f90424e2bc9c18dc6d8cc4bdedc53a1cc000c"
+					},
+					{
+						"type": "RSA-SHA3-512",
+						"hash": "787a2cbd1ae076ed71ac29244abf95097aea45721f0a667a48937692774100aad08dc3e154f470ba483cbcaa841b0c120f4d26ecddb65c430e7c6a4cdc60efe2"
+					},
+					{
+						"type": "RSA-SHA384",
+						"hash": "23b908665be37829971b3ac93f3e26d3b7d912ac10eaae327ec093c80c64ff7023bdd9dffeaf056559e85f74f95fcf08"
+					},
+					{
+						"type": "RSA-SHA512",
+						"hash": "9bb2c756de45befb96d4110e6121f47026086aae721ef0d542d3a28fbbd6fd638befde3011d775f10dc890a977eff82d7120e38e5de6ccb01cc122322c194832"
+					},
+					{
+						"type": "RSA-SHA512/224",
+						"hash": "6c08ad82814019e31b6542e53836db496a7ca2afb436e021bc6b7780"
+					},
+					{
+						"type": "RSA-SHA512/256",
+						"hash": "5c2b6686dad49f76581a667d36be77f3adcdc2a4af0fd2d4b1d50d295e5093f7"
+					},
+					{
+						"type": "RSA-SM3",
+						"hash": "7272f6754091af193de5b200f230f6d53bb21bb0dce47e3277153775cbb99e0d"
+					},
+					{
+						"type": "blake2b512",
+						"hash": "e19d813ab2f419cb19f24eed9d1ba432bf407f0eaeb8176da8457f0f36ecc2deb909e10439e57edf6142119a6afbe73b0481e6cb4787f75dfded9329e6d3ddf9"
+					},
+					{
+						"type": "blake2s256",
+						"hash": "554d8e29a82f945f0db2acf61cd3c917098c780f8122517743b9151bdcd5deaf"
+					},
+					{
+						"type": "id-rsassa-pkcs1-v1_5-with-sha3-224",
+						"hash": "9771698bab67beba0b9935b0bc049c3adf8a8986e8737c0d6e64a3eb"
+					},
+					{
+						"type": "id-rsassa-pkcs1-v1_5-with-sha3-256",
+						"hash": "b6177ba6148dc75a33998ea4819054ce381b7628463fda85b862caba6ac1d917"
+					},
+					{
+						"type": "id-rsassa-pkcs1-v1_5-with-sha3-384",
+						"hash": "49965b4f03d04ea6c6bb91a0ad81f83e67fa4ace828889c9f717e8602d6f90424e2bc9c18dc6d8cc4bdedc53a1cc000c"
+					},
+					{
+						"type": "id-rsassa-pkcs1-v1_5-with-sha3-512",
+						"hash": "787a2cbd1ae076ed71ac29244abf95097aea45721f0a667a48937692774100aad08dc3e154f470ba483cbcaa841b0c120f4d26ecddb65c430e7c6a4cdc60efe2"
+					},
+					{
+						"type": "md4",
+						"hash": "6b459dcb5adf8009f81aacf71d8d473e"
+					},
+					{
+						"type": "md4WithRSAEncryption",
+						"hash": "6b459dcb5adf8009f81aacf71d8d473e"
+					},
+					{
+						"type": "md5",
+						"hash": "c78cacc311d603cdd24111ea529d98e5"
+					},
+					{
+						"type": "md5-sha1",
+						"hash": "c78cacc311d603cdd24111ea529d98e51d1488745504c56f954b1cc8931e15ce056ed28b"
+					},
+					{
+						"type": "md5WithRSAEncryption",
+						"hash": "c78cacc311d603cdd24111ea529d98e5"
+					},
+					{
+						"type": "mdc2",
+						"hash": "b9e1dad985a335228e6c608542476a2c"
+					},
+					{
+						"type": "mdc2WithRSA",
+						"hash": "b9e1dad985a335228e6c608542476a2c"
+					},
+					{
+						"type": "ripemd",
+						"hash": "d1f255cc30b80b4d8fb5d751d35a8514b6ecc752"
+					},
+					{
+						"type": "ripemd160",
+						"hash": "d1f255cc30b80b4d8fb5d751d35a8514b6ecc752"
+					},
+					{
+						"type": "ripemd160WithRSA",
+						"hash": "d1f255cc30b80b4d8fb5d751d35a8514b6ecc752"
+					},
+					{
+						"type": "rmd160",
+						"hash": "d1f255cc30b80b4d8fb5d751d35a8514b6ecc752"
+					},
+					{
+						"type": "sha1",
+						"hash": "1d1488745504c56f954b1cc8931e15ce056ed28b"
+					},
+					{
+						"type": "sha1WithRSAEncryption",
+						"hash": "1d1488745504c56f954b1cc8931e15ce056ed28b"
+					},
+					{
+						"type": "sha224",
+						"hash": "696e16a2eb32448f2006babe2a0cf724960e6b92022526c6cad6b3ca"
+					},
+					{
+						"type": "sha224WithRSAEncryption",
+						"hash": "696e16a2eb32448f2006babe2a0cf724960e6b92022526c6cad6b3ca"
+					},
+					{
+						"type": "sha256",
+						"hash": "ee63b401245e2e73d149124fcbb66026ce54e754b3851da65591660bd89cb131"
+					},
+					{
+						"type": "sha256WithRSAEncryption",
+						"hash": "ee63b401245e2e73d149124fcbb66026ce54e754b3851da65591660bd89cb131"
+					},
+					{
+						"type": "sha3-224",
+						"hash": "9771698bab67beba0b9935b0bc049c3adf8a8986e8737c0d6e64a3eb"
+					},
+					{
+						"type": "sha3-256",
+						"hash": "b6177ba6148dc75a33998ea4819054ce381b7628463fda85b862caba6ac1d917"
+					},
+					{
+						"type": "sha3-384",
+						"hash": "49965b4f03d04ea6c6bb91a0ad81f83e67fa4ace828889c9f717e8602d6f90424e2bc9c18dc6d8cc4bdedc53a1cc000c"
+					},
+					{
+						"type": "sha3-512",
+						"hash": "787a2cbd1ae076ed71ac29244abf95097aea45721f0a667a48937692774100aad08dc3e154f470ba483cbcaa841b0c120f4d26ecddb65c430e7c6a4cdc60efe2"
+					},
+					{
+						"type": "sha384",
+						"hash": "23b908665be37829971b3ac93f3e26d3b7d912ac10eaae327ec093c80c64ff7023bdd9dffeaf056559e85f74f95fcf08"
+					},
+					{
+						"type": "sha384WithRSAEncryption",
+						"hash": "23b908665be37829971b3ac93f3e26d3b7d912ac10eaae327ec093c80c64ff7023bdd9dffeaf056559e85f74f95fcf08"
+					},
+					{
+						"type": "sha512",
+						"hash": "9bb2c756de45befb96d4110e6121f47026086aae721ef0d542d3a28fbbd6fd638befde3011d775f10dc890a977eff82d7120e38e5de6ccb01cc122322c194832"
+					},
+					{
+						"type": "sha512-224",
+						"hash": "6c08ad82814019e31b6542e53836db496a7ca2afb436e021bc6b7780"
+					},
+					{
+						"type": "sha512-224WithRSAEncryption",
+						"hash": "6c08ad82814019e31b6542e53836db496a7ca2afb436e021bc6b7780"
+					},
+					{
+						"type": "sha512-256",
+						"hash": "5c2b6686dad49f76581a667d36be77f3adcdc2a4af0fd2d4b1d50d295e5093f7"
+					},
+					{
+						"type": "sha512-256WithRSAEncryption",
+						"hash": "5c2b6686dad49f76581a667d36be77f3adcdc2a4af0fd2d4b1d50d295e5093f7"
+					},
+					{
+						"type": "sha512WithRSAEncryption",
+						"hash": "9bb2c756de45befb96d4110e6121f47026086aae721ef0d542d3a28fbbd6fd638befde3011d775f10dc890a977eff82d7120e38e5de6ccb01cc122322c194832"
+					},
+					{
+						"type": "shake128",
+						"hash": "bfae3b075bd7b917be544b6d1f8d683b"
+					},
+					{
+						"type": "shake256",
+						"hash": "a4a13b067494276d9fed392f014c47572622267a9a1476433ebd11071a050f1a"
+					},
+					{
+						"type": "sm3",
+						"hash": "7272f6754091af193de5b200f230f6d53bb21bb0dce47e3277153775cbb99e0d"
+					},
+					{
+						"type": "sm3WithRSAEncryption",
+						"hash": "7272f6754091af193de5b200f230f6d53bb21bb0dce47e3277153775cbb99e0d"
+					},
+					{
+						"type": "ssl3-md5",
+						"hash": "c78cacc311d603cdd24111ea529d98e5"
+					},
+					{
+						"type": "ssl3-sha1",
+						"hash": "1d1488745504c56f954b1cc8931e15ce056ed28b"
+					},
+					{
+						"type": "whirlpool",
+						"hash": "ac3017d9fe55cde0eea8291913e62b261759650a567ff3123a6fcefd1112682076297c1fdbd4a482ff0f2cf77d7fb340674ad17b011c814ade2e39812b9885d3"
+					}
+				]
+			}
+		}
+	}
+}
