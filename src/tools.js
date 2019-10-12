@@ -17,13 +17,9 @@ module.exports = {
 
 		var calculatedHash = hash.read();
 		var version = null;
-		versions.platforms.forEach((p) => {
-			Object.keys(p).forEach((v) => {
-				var ver = p[v];
-
-				ver.hash.forEach((h) => {
-					if (h.hash == calculatedHash) version = ver;
-				});
+		versions.allVersions.forEach((ver) => {
+			ver.hash.forEach((h) => {
+				if (h.hash == calculatedHash) version = ver;
 			});
 		});
 		return version;
@@ -83,5 +79,18 @@ module.exports = {
 				});
 			});
 		});
+	},
+	createPatchJSON(name, author, version, patches) {
+		var patchFile = {
+			name: name,
+			version: version,
+			author: author,
+			metadata: {
+				generator: 'DataJetJS v' + pkgjson.version
+			},
+			patches: patches
+		};
+
+		return patchFile;
 	}
 };

@@ -8,7 +8,15 @@ module.exports = {
 
 		throw Error('Failed to apply patches: ' + err.join('\n'));
 	},
-	flatten: function(patches){
+	flatten: function(patchesin){
+		patches = [];
+		patchesin.forEach((p) => {
+			if (Array.isArray(p)) {
+				p.forEach((q) => {
+					patches.push(q);
+				});
+			}
+		});
 		pch = [];
 		patches.forEach((e) => {
 			if (!pch.map((t) => t.file).includes(e.file)) {
@@ -26,7 +34,15 @@ module.exports = {
 		});
 		return pch;
 	},
-	conflicts: function(patches){
+	conflicts: function(patchesin){
+		patches = [];
+		patchesin.forEach((p) => {
+			if (Array.isArray(p)) {
+				p.forEach((q) => {
+					patches.push(q);
+				});
+			}
+		});
 		pch = [];
 		cfts = [];
 		patches.forEach((e) => {
@@ -35,12 +51,12 @@ module.exports = {
 			}
 			else {
 				var p = pch[pch.map((t) => t.file).indexOf(e.file)];
-
 				e.patches.forEach((c) => {
 					if (p.patches.map((t) => t.path).includes(c.path)) {
 						cfts.push([
 							e,
-							p
+							p,
+							c.path
 						]);
 						//throw Error('Two or more patches are conflicting with eachother');
 					}

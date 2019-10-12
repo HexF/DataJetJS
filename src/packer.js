@@ -119,9 +119,8 @@ module.exports = {
 
 						this.patches = [];
 					}
-
-					return directory;
 				});
+				return dir;
 			}
 		};
 	}
