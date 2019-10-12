@@ -27,7 +27,7 @@ var mypatches = [   //Our patches we want to apply
 var mypatchedjet =
     jet.packer
     .unpack('data.jet', jet.version.steam["6.4.0"])  //Unpack our jet
-    .patch(mypatches)                                  //Apply our patch
+    .addPatch(mypatches)                             //Apply our patch
     .pack();                                         //Repack our jet, overwriting our other jet
 
 ```

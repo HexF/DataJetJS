@@ -28,7 +28,8 @@
 	},
 	"homepage": "https://github.com/HexF/DataJetJS#readme",
 	"devDependencies": {
-		"mocha": "^6.2.1"
+		"mocha": "^6.2.1",
+		"pkg": "^4.4.0"
 	},
 	"files": [
 		"bin",
